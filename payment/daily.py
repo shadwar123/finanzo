@@ -2,10 +2,14 @@ from flask import Flask, request, jsonify, render_template
 from ast import literal_eval
 from pymongo import MongoClient
 from flask_cors import CORS
+import os
 import openai
 import json
+from dotenv import load_dotenv
 app = Flask(__name__)
 
+load_dotenv()
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 # Function to load data from JSON file
 def load_data():
     try:
@@ -51,7 +55,7 @@ def add_value():
 
 @app.route("/chat", methods=["GET", "POST"])
 def CustomChatGPT():
-    openai.api_key = "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"
+    openai.api_key = OPENAI_API_KEY
                      
     # Load data from JSON file
     user_input = "suggest me some future plans in paragraph in 100 words in seperate lines."  # This is the user input message
