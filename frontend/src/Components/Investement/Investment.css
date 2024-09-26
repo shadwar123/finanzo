@@ -1,0 +1,33 @@
+/* StockPrices.css */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    border-radius: 8px;
+  }
+  
+  th, td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  tr:hover {
+    background-color: #f9f9f9;
+  }
+  
+  td {
+    color: #666;
+  }
+  
+  td:first-child {
+    font-weight: bold;
+  }

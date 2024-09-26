@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charts</title>
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .charts-container {
+            display: flex;
+            justify-content: center; /* Align items horizontally in the center */
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .chart-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Align items horizontally in the center */
+            margin-right: 20px; /* Add right margin to create space between charts */
+        }
+
+        canvas {
+            margin-bottom: 20px; /* Add some bottom margin to create space between the canvas and <h2> */
+        }
+
+        h2 {
+            margin-top: 0; /* Remove top margin */
+            margin-bottom: 10px; /* Add bottom margin to create space between heading and chart */
+        }
+
+        .box-container {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .box {
+            width: 200px;
+            height: 100px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Your Budget Dashboard</h2>
+    <div class="charts-container">
+        <div class="chart-wrapper">
+            <!-- Create a canvas element for the bar chart -->
+            <canvas id="barChart"></canvas>
+            <!-- Add heading for the bar chart -->
+            <h2>Monthly Expenditure</h2>
+        </div>
+        <div class="chart-wrapper">
+            <!-- Create a canvas element for the pie chart -->
+            <canvas id="pieChart"></canvas>
+            <!-- Add heading for the pie chart -->
+            <h2>Total Expenditure</h2>
+        </div>
+    </div>
+
+    <div class="box-container">
+        <div class="box">
+            <h2>Total Saving</h2>
+            <p>12500 RS</p>
+        </div>
+        <div class="box">
+            <h2>Total Expenditure</h2>
+            <p>18750 RS</p>
+        </div>
+        
+    </div>
+
+    <script>
+        // Load the JSON file using AJAX
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    var jsonData = JSON.parse(xhr.responseText);
+                    createBarChart(jsonData);
+                    createPieChart(jsonData);
+                } else {
+                    console.error('Failed to load JSON file');
+                }
+            }
+        };
+        xhr.open('GET', 'data.json', true);
+        xhr.send();
+
+        // Function to create the bar chart
+        function createBarChart(data) {
+            var labels = Object.keys(data);
+            var values = Object.values(data);
+
+            var ctx = document.getElementById('barChart').getContext('2d');
+            var barChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Values',
+                        data: values,
+                        backgroundColor: 'rgba(54, 162, 235, 0.5)', // Blue color with opacity
+                        borderColor: 'rgba(54, 162, 235, 1)', // Solid blue border
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: false, // Set to false to prevent resizing of the chart
+                    scales: {
+                        y: {
+                            beginAtZero: true // Start y-axis from zero
+                        }
+                    }
+                }
+            });
+        }
+
+        // Function to create the pie chart
+        function createPieChart(data) {
+            var total = Object.values(data).reduce((acc, val) => acc + val, 0);
+            var percentage = (total / 10000) * 100;
+
+            var ctx = document.getElementById('pieChart').getContext('2d');
+            var pieChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['Total', 'Remaining'],
+                    datasets: [{
+                        data: [percentage, 100 - percentage],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.5)', // Red color with opacity
+                            'rgba(54, 162, 235, 0.5)' // Blue color with opacity
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)', // Solid red border
+                            'rgba(54, 162, 235, 1)' // Solid blue border
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: false, // Set to false to prevent resizing of the chart
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'right'
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

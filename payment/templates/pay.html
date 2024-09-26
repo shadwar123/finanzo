@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pay</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5; /* Light gray background */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+h2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #333; /* Dark gray text color */
+}
+
+textarea {
+    width: 300px;
+    height: 40px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 12px;
+    resize: none; /* Prevent resizing */
+    font-size: 16px;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50; /* Green button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+button img {
+    width: 20px; /* Adjust the width of the image */
+    height: 20px; /* Adjust the height of the image */
+    margin-right: 5px; /* Add spacing between the image and text */
+    vertical-align: middle; /* Align the image vertically */
+}
+  
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pay Securely</h1>
+        <h2>Pay using UPI ID:</h2>
+        <textarea placeholder="Enter your UPI ID"></textarea>
+        <button>Verify</button>
+
+        <h2>-------------OR-------------</h2>
+        <button><a href="https://paytm.com/">
+            <img src="https://assetscdn1.paytm.com/images/catalog/view/310944/1697527183231.png" alt="Button Icon">
+            PAYTM</a>
+        </button>
+        <button><a href="https://phonepe.com/">
+            <img src="https://play-lh.googleusercontent.com/6iyA2zVz5PyyMjK5SIxdUhrb7oh9cYVXJ93q6DZkmx07Er1o90PXYeo6mzL4VC2Gj9s" alt="Button Icon">
+            Phone Pe</a>
+        </button>
+        <button><a href="https://pay.google.com/about/">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/82/21/b5/8221b586-1e98-a50f-2dd7-f6e39ea9c61f/GPayAppIcon-0-1x_U007emarketing-0-0-0-5-0-0-0-85-220-0.png/1200x630wa.png" alt="Button Icon">
+            GPay</a>
+        </button>
+    </div>
+</body>
+</html>

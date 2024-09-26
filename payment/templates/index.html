@@ -1,0 +1,187 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Values</title>
+</head>
+<body>
+    <h1>Category Values</h1>
+    <form action="/add_value" method="post">
+        <label for="category">Select category:</label>
+        <select name="category" id="category">
+            <option value="food">Food</option>
+            <option value="cloth">Cloth</option>
+            <option value="others">Others</option>
+        </select>
+        <br>
+        <label for="value">Enter value:</label>
+        <input type="text" id="value" name="value">
+        <br>
+        <button type="submit">Add Value</button>
+    </form>
+    <h2>Current Values:</h2>
+    <ul>
+        <li>Food: {{ data.food }}</li>
+        <li>Cloth: {{ data.cloth }}</li>
+        <li>Others: {{ data.others }}</li>
+    </ul>
+</body>
+</html> -->
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Values</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        form {
+            margin: auto;
+            width: 100%;
+            max-width: 400px; /* Limiting form width for better readability */
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        form label, form input, form select, form button {
+            display: block;
+            margin-bottom: 10px;
+        }
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        h2 {
+            margin-top: 40px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            margin-bottom: 10px;
+        }
+        /* Additional styles */
+        body {
+            font-size: 16px; /* Set font size */
+           
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Add Items & Prices</h1>
+    <form action="/add_value" method="post">
+        <label for="category">Select category:</label>
+        <select name="category" id="category">
+            <option value="food">Food</option>
+            <option value="cloth">Cloth</option>
+            <option value="others">Others</option>
+        </select>
+        <label for="value">Enter value:</label>
+        <input type="text" id="value" name="value">
+        <button type="submit">Add Value</button>
+    </form>
+    <h2>Items & Price Basket:</h2>
+    <ul>
+        <li>Food: {{ data.food }}</li>
+        <li>Cloth: {{ data.cloth }}</li>
+        <li>Others: {{ data.others }}</li>
+    </ul>
+</body>
+</html>
+ -->
+
+
+
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Values</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        form {
+            margin: auto;
+            width: 100%;
+            max-width: 400px; /* Limiting form width for better readability */
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        form label, form input, form select, form button {
+            display: block; /* Display each form element as a block */
+            margin-bottom: 10px; /* Add some margin between form elements */
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        h2 {
+            margin-top: 40px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            margin-bottom: 10px;
+        }
+        /* Additional styles */
+        body {
+            font-size: 16px; /* Set font size */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Add Items & Prices</h1>
+    <form action="/add_value" method="post">
+        <label for="category">Select category:</label>
+        <select name="category" id="category">
+            <option value="food">Food</option>
+            <option value="cloth">Cloth</option>
+            <option value="others">Others</option>
+        </select>
+        <label for="value">Enter value:</label>
+        <input type="text" id="value" name="value">
+        <button type="submit">Add Value</button>
+    </form>
+    <h2>Items & Price Basket:</h2>
+    <ul>
+        <li>Food: {{ data.food }}</li>
+        <li>Cloth: {{ data.cloth }}</li>
+        <li>Others: {{ data.others }}</li>
+    </ul>
+    <button type="button" onclick="window.location.href='/pay'">Proceed to pay</button>
+
+</body>
+</html>

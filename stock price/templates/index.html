@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Stock Prices</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa; /* Formal color for background */
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 20px auto;
+        }
+
+        .box {
+            width: calc(33.33% - 20px);
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px; /* Add border radius */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            border-radius: 8px; /* Add border radius */
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        td {
+            color: #666;
+        }
+
+        td:first-child {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Live Stock Prices</h1>
+    <table>
+        <tr>
+            <th>Stock Symbol</th>
+            <th>Current Price</th>
+            <th>Increment/Decrement</th>
+        </tr>
+        {% for info in stock_info %}
+        <tr>
+            <td>{{ info.symbol }}</td>
+            <td>{{ info.price }}</td>
+            <td>{{ info.change }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h2>Top trending stock</h2>
+    <div class="container">
+        <div class="box">
+            <h2>AMZN</h2>
+            <p>Price: 185.07</p>
+            <p>Increment BY: 15.07</p>
+        </div>
+        <div class="box">
+            <h2>MSFT</h2>
+            <p>Price: 425.07</p>
+            <p>Increment BY: 12.07</p>
+        </div>
+        <div class="box">
+            <h2>GOOGL</h2>
+            <p>Price: 152.69</p>
+            <p>Increment BY: 17.23</p>
+        </div>
+    </div>
+</body>
+</html>
